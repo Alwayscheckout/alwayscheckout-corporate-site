@@ -68,11 +68,18 @@
   }
 
   .aco-brand {
-    color: var(--aco-navy);
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .aco-brand img {
+    display: block;
+    width: auto;
+    height: 40px;
+    max-width: 280px;
+    object-fit: contain;
   }
 
   .aco-links {
@@ -505,7 +512,12 @@
     }
 
     .aco-brand {
-      font-size: 13px;
+      max-width: 190px;
+    }
+
+    .aco-brand img {
+      height: 34px;
+      max-width: 190px;
     }
 
     .aco-nav .aco-btn {
@@ -538,7 +550,9 @@
 <div class="aco-site" id="aco-site-root">
   <header class="aco-nav">
     <nav class="aco-shell aco-nav-inner" aria-label="Main navigation">
-      <a class="aco-brand" href="#home">ALWAYSCHECKOUT INC.</a>
+      <a class="aco-brand" href="#home" aria-label="ALWAYSCHECKOUT INC. home">
+        <img src="https://alwayscheckout.github.io/alwayscheckout-corporate-site/assets/alwayscheckout-logo.png" alt="ALWAYSCHECKOUT INC.">
+      </a>
       <div class="aco-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
