@@ -1,0 +1,709 @@
+<style id="aco-custom-style">
+  body.aco-rendered {
+    margin: 0 !important;
+  }
+
+  body.aco-rendered #page,
+  body.aco-rendered #header,
+  body.aco-rendered #footer,
+  body.aco-rendered .Header,
+  body.aco-rendered .Footer,
+  body.aco-rendered .header,
+  body.aco-rendered footer:not(.aco-footer),
+  body.aco-rendered .page-section:not(:has(.aco-site)) {
+    display: none !important;
+  }
+
+  body:not(.sqs-edit-mode-active) .page-section:not(:has(.aco-site)) {
+    display: none !important;
+  }
+
+  .aco-site,
+  .aco-site * {
+    box-sizing: border-box;
+  }
+
+  .aco-site {
+    --aco-navy: #0f172a;
+    --aco-slate: #1e293b;
+    --aco-muted: #64748b;
+    --aco-line: #e2e8f0;
+    --aco-accent: #2563eb;
+    --aco-light: #f8fafc;
+    margin: 0;
+    background: #ffffff;
+    color: #334155;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  .aco-site a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .aco-shell {
+    width: min(100%, 1280px);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .aco-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid var(--aco-line);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+  }
+
+  .aco-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 65px;
+  }
+
+  .aco-brand {
+    color: var(--aco-navy);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .aco-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .aco-links a:hover,
+  .aco-contact-link:hover {
+    color: var(--aco-accent);
+  }
+
+  .aco-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border-radius: 6px;
+    background: var(--aco-navy);
+    color: #ffffff !important;
+    padding: 0 18px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 160ms ease;
+    white-space: nowrap;
+  }
+
+  .aco-btn:hover {
+    background: #1e293b;
+  }
+
+  .aco-btn-accent {
+    background: var(--aco-accent);
+    padding: 0 24px;
+  }
+
+  .aco-btn-accent:hover {
+    background: #3b82f6;
+  }
+
+  .aco-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--aco-navy);
+    color: #ffffff;
+  }
+
+  .aco-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.28), transparent 32rem);
+    pointer-events: none;
+  }
+
+  .aco-hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 48px;
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+
+  .aco-kicker {
+    margin: 0 0 20px;
+    color: #bfdbfe;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .aco-hero h1 {
+    max-width: 850px;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .aco-hero-copy {
+    max-width: 690px;
+    margin: 24px 0 0;
+    color: #cbd5e1;
+    font-size: 18px;
+    line-height: 1.78;
+  }
+
+  .aco-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .aco-hero-note {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 14px;
+  }
+
+  .aco-hero-panel {
+    align-self: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 24px;
+    box-shadow: 0 25px 50px rgba(2, 6, 23, 0.3);
+    backdrop-filter: blur(12px);
+  }
+
+  .aco-panel-stack,
+  .aco-service-grid,
+  .aco-info-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .aco-panel-card {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+  }
+
+  .aco-panel-kicker {
+    margin: 0;
+    color: #bfdbfe;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .aco-panel-title {
+    margin: 12px 0 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.45;
+  }
+
+  .aco-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .aco-stat {
+    margin: 0;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 800;
+  }
+
+  .aco-panel-text {
+    margin: 8px 0 0;
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .aco-section {
+    padding: 88px 0;
+  }
+
+  .aco-about-grid,
+  .aco-compliance-grid {
+    display: grid;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .aco-about-grid {
+    grid-template-columns: 0.82fr 1.18fr;
+  }
+
+  .aco-compliance-grid {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .aco-eyebrow {
+    margin: 0;
+    color: var(--aco-accent);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .aco-section h2 {
+    margin: 12px 0 0;
+    color: var(--aco-navy);
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: 0;
+  }
+
+  .aco-body-copy {
+    display: grid;
+    gap: 24px;
+    color: #475569;
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .aco-body-copy p {
+    margin: 0;
+  }
+
+  .aco-services {
+    border-top: 1px solid var(--aco-line);
+    border-bottom: 1px solid var(--aco-line);
+    background: var(--aco-light);
+  }
+
+  .aco-section-head {
+    max-width: 680px;
+  }
+
+  .aco-service-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .aco-service-card {
+    border: 1px solid var(--aco-line);
+    border-radius: 6px;
+    background: #ffffff;
+    padding: 28px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+
+  .aco-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    background: #eff6ff;
+    color: var(--aco-accent);
+  }
+
+  .aco-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .aco-service-card h3 {
+    margin: 0;
+    color: var(--aco-navy);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  .aco-service-card p {
+    margin: 16px 0 0;
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .aco-compliance {
+    background: #0f172a;
+    color: #ffffff;
+  }
+
+  .aco-compliance .aco-eyebrow {
+    color: #bfdbfe;
+  }
+
+  .aco-compliance h2 {
+    color: #ffffff;
+  }
+
+  .aco-compliance-copy {
+    margin: 24px 0 0;
+    color: #cbd5e1;
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .aco-info-card {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(2, 6, 23, 0.22);
+  }
+
+  .aco-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .aco-info-grid dt {
+    color: #bfdbfe;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .aco-info-grid dd {
+    margin: 4px 0 0;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .aco-info-wide {
+    grid-column: 1 / -1;
+  }
+
+  .aco-contact {
+    text-align: center;
+  }
+
+  .aco-contact .aco-section-head {
+    margin: 0 auto;
+  }
+
+  .aco-contact-copy {
+    max-width: 760px;
+    margin: 20px auto 0;
+    color: #475569;
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .aco-contact-card {
+    max-width: 580px;
+    margin: 40px auto 0;
+    border: 1px solid var(--aco-line);
+    border-radius: 6px;
+    background: var(--aco-light);
+    padding: 32px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+
+  .aco-contact-label {
+    margin: 0;
+    color: var(--aco-muted);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .aco-contact-link {
+    display: block;
+    margin-top: 12px;
+    color: var(--aco-accent) !important;
+    font-size: 20px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+  }
+
+  .aco-location {
+    margin: 20px 0 0;
+    color: #475569;
+    font-size: 14px;
+  }
+
+  .aco-footer {
+    border-top: 1px solid var(--aco-line);
+    background: #ffffff;
+  }
+
+  .aco-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    color: var(--aco-muted);
+    font-size: 14px;
+  }
+
+  .aco-footer p {
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .aco-links {
+      display: none;
+    }
+
+    .aco-hero-grid,
+    .aco-about-grid,
+    .aco-compliance-grid,
+    .aco-service-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .aco-hero-grid {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .aco-section {
+      padding: 72px 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .aco-shell {
+      padding: 0 20px;
+    }
+
+    .aco-nav-inner {
+      min-height: auto;
+      padding: 14px 0;
+    }
+
+    .aco-brand {
+      font-size: 13px;
+    }
+
+    .aco-nav .aco-btn {
+      min-height: 38px;
+      padding: 0 12px;
+      font-size: 13px;
+    }
+
+    .aco-hero h1 {
+      font-size: 38px;
+    }
+
+    .aco-hero-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .aco-stat-grid,
+    .aco-info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .aco-footer-inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>
+
+<div class="aco-site" id="aco-site-root">
+  <header class="aco-nav">
+    <nav class="aco-shell aco-nav-inner" aria-label="Main navigation">
+      <a class="aco-brand" href="#home">ALWAYSCHECKOUT INC.</a>
+      <div class="aco-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="aco-btn" href="mailto:alwayscheckout@acqmail.com">Email Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="aco-hero">
+      <div class="aco-shell aco-hero-grid">
+        <div>
+          <p class="aco-kicker">Canadian B2B Trade Support</p>
+          <h1>B2B Procurement, Market Research &amp; Cross-Border Trade Support</h1>
+          <p class="aco-hero-copy">ALWAYSCHECKOUT INC. supports business clients with structured product sourcing, market intelligence, logistics coordination, and trade operations across North American and international markets.</p>
+          <div class="aco-hero-actions">
+            <a class="aco-btn aco-btn-accent" href="mailto:alwayscheckout@acqmail.com">Contact Our Team</a>
+            <p class="aco-hero-note">Federally Incorporated Canadian Enterprise &middot; Richmond, British Columbia</p>
+          </div>
+        </div>
+
+        <aside class="aco-hero-panel" aria-label="Operations highlights">
+          <div class="aco-panel-stack">
+            <div class="aco-panel-card">
+              <p class="aco-panel-kicker">Operations Focus</p>
+              <p class="aco-panel-title">Procurement workflows, supplier coordination, and logistics communication.</p>
+            </div>
+            <div class="aco-stat-grid">
+              <div class="aco-panel-card">
+                <p class="aco-stat">B2B</p>
+                <p class="aco-panel-text">Commercial sourcing and operations support.</p>
+              </div>
+              <div class="aco-panel-card">
+                <p class="aco-stat">BC</p>
+                <p class="aco-panel-text">Principal operations in Richmond, British Columbia.</p>
+              </div>
+            </div>
+            <div class="aco-panel-card">
+              <p class="aco-panel-text">Market availability research, inventory review, shipment coordination, and compliance communication for business partners and service providers.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="aco-section" id="about">
+      <div class="aco-shell aco-about-grid">
+        <div>
+          <p class="aco-eyebrow">About Us</p>
+          <h2>About ALWAYSCHECKOUT INC.</h2>
+        </div>
+        <div class="aco-body-copy">
+          <p>Headquartered in Richmond, British Columbia, ALWAYSCHECKOUT INC. is a federally incorporated Canadian enterprise focused on B2B procurement support, e-commerce operations, market research, and cross-border trade coordination. We work with business partners to improve sourcing efficiency, monitor market availability, and support reliable logistics workflows between Canada and international commercial markets.</p>
+          <p>Our work combines structured procurement processes, market data review, supplier communication, and logistics coordination to support practical business operations for wholesale, trade, and e-commerce-related activities.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="aco-section aco-services" id="services">
+      <div class="aco-shell">
+        <div class="aco-section-head">
+          <p class="aco-eyebrow">What We Do</p>
+          <h2>Core Services</h2>
+        </div>
+        <div class="aco-service-grid">
+          <article class="aco-service-card">
+            <span class="aco-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5"></path><path d="M8 17V9"></path><path d="M12 19V4"></path><path d="M16 15V8"></path><path d="M20 19v-6"></path></svg>
+            </span>
+            <h3>Market Research &amp; Data Analysis</h3>
+            <p>We review pricing trends, product availability, inventory movement, and market demand signals to help business partners make informed procurement and distribution decisions.</p>
+          </article>
+          <article class="aco-service-card">
+            <span class="aco-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l-1 12H7L6 7Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path><path d="M9 12h6"></path></svg>
+            </span>
+            <h3>B2B Procurement Support</h3>
+            <p>We assist with structured product sourcing, supplier coordination, purchase planning, and inventory acquisition workflows for business-to-business trade operations.</p>
+          </article>
+          <article class="aco-service-card">
+            <span class="aco-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><path d="M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path><path d="M18 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path></svg>
+            </span>
+            <h3>Logistics &amp; Trade Coordination</h3>
+            <p>We support cross-border fulfillment planning, shipment coordination, documentation workflows, and communication between suppliers, freight providers, and business clients.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="aco-section aco-compliance" id="compliance">
+      <div class="aco-shell aco-compliance-grid">
+        <div>
+          <p class="aco-eyebrow">Verification</p>
+          <h2>Corporate Compliance</h2>
+          <p class="aco-compliance-copy">ALWAYSCHECKOUT INC. maintains accurate corporate records and operates as a Canadian business entity. For verification, partnership, or compliance-related inquiries, please contact our team using the information below.</p>
+        </div>
+        <div class="aco-info-card">
+          <dl class="aco-info-grid">
+            <div>
+              <dt>Legal Name</dt>
+              <dd>ALWAYSCHECKOUT INC.</dd>
+            </div>
+            <div>
+              <dt>Corporate Structure</dt>
+              <dd>Federally Incorporated Canadian Enterprise</dd>
+            </div>
+            <div>
+              <dt>Business Number</dt>
+              <dd>722872165</dd>
+            </div>
+            <div>
+              <dt>Compliance Contact</dt>
+              <dd><a href="mailto:alwayscheckout@acqmail.com">alwayscheckout@acqmail.com</a></dd>
+            </div>
+            <div class="aco-info-wide">
+              <dt>Principal Operations Address</dt>
+              <dd>UNIT 401-8600 PARK RD, Richmond, BC, Canada</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="aco-section aco-contact" id="contact">
+      <div class="aco-shell">
+        <div class="aco-section-head">
+          <p class="aco-eyebrow">Contact</p>
+          <h2>Contact</h2>
+          <p class="aco-contact-copy">For business inquiries, supplier coordination, service provider onboarding, or compliance verification, please contact ALWAYSCHECKOUT INC. through the email below.</p>
+        </div>
+        <div class="aco-contact-card">
+          <p class="aco-contact-label">Email</p>
+          <a class="aco-contact-link" href="mailto:alwayscheckout@acqmail.com">alwayscheckout@acqmail.com</a>
+          <p class="aco-location">Richmond, British Columbia, Canada</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="aco-footer">
+    <div class="aco-shell aco-footer-inner">
+      <p>&copy; 2026 ALWAYSCHECKOUT INC. All rights reserved.</p>
+      <p>B2B Procurement &middot; Market Research &middot; Logistics Coordination &middot; Cross-Border Trade Support</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    function mountAlwaysCheckoutSite() {
+      var style = document.getElementById("aco-custom-style");
+      var site = document.getElementById("aco-site-root");
+      if (!site) return;
+      if (style && style.parentNode !== document.head) {
+        document.head.appendChild(style);
+      }
+      if (site.parentNode !== document.body || document.body.firstElementChild !== site) {
+        document.body.insertBefore(site, document.body.firstChild);
+      }
+      document.body.classList.add("aco-rendered");
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", mountAlwaysCheckoutSite);
+    } else {
+      mountAlwaysCheckoutSite();
+    }
+  })();
+</script>
